@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { collection, addDoc, updateDoc, Firestore, doc, getDoc} from '@angular/fire/firestore';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { deleteDoc } from 'firebase/firestore';
 
@@ -12,13 +13,17 @@ export class AlumnoEditPage implements OnInit {
   id: any; //atributo que recibe el id del registro desde la ruta
   isNew : boolean=false;
   alumno: any={};
+  
  
 
   constructor(
     private readonly firestore: Firestore,
     private router: Router,
-    private route: ActivatedRoute
-    ){}
+    private route: ActivatedRoute,
+    
+    ){
+      
+  }
   
 
     //metodo de la interfaz OnInit
@@ -62,6 +67,8 @@ export class AlumnoEditPage implements OnInit {
     }else{
       this.editarAlumno()
     }
+
+  
   }
 
   incluirAlumno = () =>{

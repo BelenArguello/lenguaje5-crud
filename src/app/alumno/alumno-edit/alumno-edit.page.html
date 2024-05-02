@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
         <ion-buttons slot="start">
-            <!--cambiar por alumnos-list para observar el comportamiento-->
+           
             <ion-back-button defaultHref="#"></ion-back-button>
         </ion-buttons>
 
@@ -10,7 +10,7 @@
 
 
         <ion-buttons slot="primary">
-            <ion-button fill="solid" (click)="guardarAlumno()">
+            <ion-button disabled="{{nombre.invalid || apellido.invalid}}" fill="solid" (click)="guardarAlumno()">
                 Guardar
                 <!--<ion-icon slot="end" name="save-outline"></ion-icon>-->
             </ion-button>
@@ -24,26 +24,46 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+    
     <ion-list>
-        <ion-item>
-            <ion-label>ID# </ion-label>
-            <ion-input [(ngModel)]="id" readonly="true" disabled="true">
-            </ion-input>
-        </ion-item>
+        
 
         <ion-item>
             <ion-label>Codigo</ion-label>
             <ion-input [(ngModel)]="alumno.codigo" required></ion-input>
-        </ion-item>
+        </ion-item> 
 
         <ion-item>
             <ion-label>Nombre</ion-label>
-            <ion-input [(ngModel)]="alumno.nombre" required></ion-input>
+            <ion-input [(ngModel)]="alumno.nombre" #nombre="ngModel" name="nombre" required type="text"></ion-input>
+            <div *ngIf="nombre.invalid && (nombre.touched)" class="alert">
+                <div *ngIf="nombre.errors?.['required']">
+                    <ion-text>
+                        Nombre es obligatorio
+                    </ion-text>
+                </div>
+            </div> 
         </ion-item>
 
         <ion-item>
             <ion-label>Apellido</ion-label>
-            <ion-input [(ngModel)]="alumno.apellido" required></ion-input>
+            <ion-input [(ngModel)]="alumno.apellido"  #apellido="ngModel" name="apellido" required type="text"></ion-input>
+            <div *ngIf="apellido.invalid && (apellido.touched)" class="alert">
+                <div *ngIf="apellido.errors?.['required']">
+                    <ion-text>
+                        Apellido es obligatorio
+                    </ion-text>
+
+                </div>
+            </div>
+           <!-- <div *ngIf="apellido.invalid && (nombre.touched)" class="alert">
+                <div *ngIf="apellido.errors?.['pattern']">
+                    <ion-text>
+                    Apellido es un campo de texto
+                    </ion-text>
+
+                </div>
+            </div>-->
         </ion-item>
     </ion-list>
 
