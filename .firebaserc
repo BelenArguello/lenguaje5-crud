@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lenguaje5-crud-bac28": {
+      "hosting": {
+        "app": [
+          "lenguaje5-crud-bac28"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lenguaje5-crud-bac28"
+  }
+}

@@ -1,0 +1,18 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.ion-button {
+    display: inline-block;
+    padding: 10px 20px;
+    /* Espacio de relleno para el botón */
+    background-color: blue;
+    /* Color de fondo azul */
+    color: white;
+    /* Texto blanco */
+    text-decoration: none;
+    /* Eliminar subrayado del enlace */
+    border-radius: 5px;
+    /* Bordes redondeados */
+}

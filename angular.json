@@ -31,7 +31,10 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": [
+              "src/global.scss",
+              "src/theme/variables.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -111,7 +114,10 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": [
+              "src/global.scss",
+              "src/theme/variables.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -129,6 +135,23 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "app:build:production",
+              "serveTarget": "app:serve:production"
+            },
+            "development": {
+              "buildTarget": "app:build:development",
+              "serveTarget": "app:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
@@ -136,7 +159,8 @@
   "cli": {
     "schematicCollections": [
       "@ionic/angular-toolkit"
-    ]
+    ],
+    "analytics": "c10679f1-a3e2-49c1-8199-816a6b8b3506"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
